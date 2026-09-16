@@ -11,7 +11,9 @@ import type { NextConfig } from "next";
  * Trim the analytics and maps entries if those features aren't used — every
  * host left in the policy is a host that's allowed to run code on the site.
  */
-const csp = [
+// ponytail: React dev mode needs eval() for HMR and callstack reconstruction.
+// Read at headers() time — NODE_ENV isn't set yet when this module is imported.
+const csp = (isDev: boolean) => [
   "default-src 'self'",
   "base-uri 'self'",
   "form-action 'self'",
@@ -20,15 +22,15 @@ const csp = [
   "img-src 'self' data: blob: https://*.googleapis.com https://*.gstatic.com",
   "font-src 'self' data:",
   "style-src 'self' 'unsafe-inline'",
-  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://plausible.io",
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com https://plausible.io`,
   "connect-src 'self' https://www.google-analytics.com https://plausible.io",
   // Google Maps embed on the contact page.
   "frame-src https://www.google.com https://maps.google.com",
   "upgrade-insecure-requests",
 ].join("; ");
 
-const securityHeaders = [
-  { key: "Content-Security-Policy", value: csp },
+const securityHeaders = (isDev: boolean) => [
+  { key: "Content-Security-Policy", value: csp(isDev) },
   // Force HTTPS for two years, including subdomains. Only meaningful once the
   // site is actually served over HTTPS — the host must also redirect http→https.
   {
@@ -59,7 +61,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/:path*",
-        headers: securityHeaders,
+        headers: securityHeaders(process.env.NODE_ENV === "development"),
       },
       {
         // Fonts and brand assets are content-stable; cache them hard.

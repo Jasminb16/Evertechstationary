@@ -274,7 +274,7 @@ function MegaMenu({ open, closing }: { open: boolean; closing: boolean }) {
       )}
       data-origin="top-center"
       // Keep it out of the tab order and the a11y tree while shut.
-      {...(open ? {} : { inert: "" as unknown as boolean })}
+      inert={!open}
     >
       <div className="rounded-2xl border border-line bg-surface p-6 shadow-menu">
         <div className="grid grid-cols-4 gap-x-6 gap-y-7">
@@ -354,7 +354,7 @@ function MobileDrawer({
       className="t-panel-slide absolute inset-x-0 top-full max-h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain border-b border-line bg-surface shadow-menu lg:hidden"
       data-open={String(open)}
       style={{ "--panel-translate-y": "-24px" } as React.CSSProperties}
-      {...(open ? {} : { inert: "" as unknown as boolean })}
+      inert={!open}
     >
       <Container className="py-5">
         <ul className="space-y-1">
