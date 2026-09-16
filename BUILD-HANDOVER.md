@@ -81,8 +81,6 @@ dev inside `headers()` leaves the production CSP untouched.
   the actual `http → https` redirect.
 - **Analytics ID**: set `NEXT_PUBLIC_GA_ID` or `NEXT_PUBLIC_PLAUSIBLE_DOMAIN`,
   or accept no analytics (the cookie banner only appears if one is set).
-- Minor: stray `// ponytail:` comment at `next.config.ts:14` looks like an
-  accidental leftover.
 
 ## Deliberately empty
 

@@ -11,7 +11,7 @@ import type { NextConfig } from "next";
  * Trim the analytics and maps entries if those features aren't used — every
  * host left in the policy is a host that's allowed to run code on the site.
  */
-// ponytail: React dev mode needs eval() for HMR and callstack reconstruction.
+// React dev mode needs eval() for HMR and callstack reconstruction.
 // Read at headers() time — NODE_ENV isn't set yet when this module is imported.
 const csp = (isDev: boolean) => [
   "default-src 'self'",
