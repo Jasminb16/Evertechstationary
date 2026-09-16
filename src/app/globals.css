@@ -1,0 +1,227 @@
+@import "tailwindcss";
+/* transitions.dev motion scale + per-transition tunables, then the snippets.
+   Every animation on this site is driven by these tokens so the timing
+   vocabulary stays consistent. */
+@import "../styles/transitions-root.css";
+@import "../styles/transitions.css";
+
+/* ───────────────────────────────────────────────────────────────────────────
+   Design tokens
+   Palette is derived from the Evertech logo: navy #04326D on a light neutral.
+   A restrained brass accent adds warmth without competing with the navy.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+@theme {
+  --color-navy-50: #eff4fb;
+  --color-navy-100: #dce7f6;
+  --color-navy-200: #bed2ed;
+  --color-navy-300: #8fb3e4;
+  --color-navy-400: #5b8ed5;
+  --color-navy-500: #2c71cc;
+  --color-navy-600: #1155ac;
+  --color-navy-700: #0a4189;
+  --color-navy-800: #04326d; /* brand */
+  --color-navy-900: #04264f;
+  --color-navy-950: #021a3a;
+
+  --color-brass-50: #fbf6ec;
+  --color-brass-100: #f3e7d2;
+  --color-brass-200: #e6cfa6;
+  --color-brass-400: #cda45c;
+  --color-brass-500: #b8863b;
+  --color-brass-600: #8d6226; /* 4.98:1 on paper — passes AA on every light surface */
+
+  --color-paper: #f6f6f7;
+  --color-paper-warm: #fbfaf8;
+  --color-surface: #ffffff;
+  --color-line: #e4e5e9;
+  --color-line-strong: #d2d4da;
+  --color-ink: #101724;
+  --color-ink-soft: #3a4354;
+  --color-ink-muted: #5b6474;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-source-serif), ui-serif, Georgia, serif;
+
+  /* Motion comes from the transitions.dev scale (--duration-*, --ease-*).
+     No easing tokens are declared here so nothing shadows them. */
+
+  --shadow-card: 0 1px 2px rgb(4 38 79 / 0.04), 0 1px 3px rgb(4 38 79 / 0.04);
+  --shadow-lift: 0 10px 24px -8px rgb(4 38 79 / 0.14), 0 2px 6px rgb(4 38 79 / 0.06);
+  --shadow-menu: 0 24px 48px -16px rgb(4 38 79 / 0.22), 0 4px 12px rgb(4 38 79 / 0.08);
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   Base
+   ─────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* The site is designed light-only; opting out keeps form controls and
+     scrollbars consistent instead of inheriting the OS dark theme. */
+  color-scheme: light;
+
+  /* Brand overrides for the transitions.dev tab colours, which ship neutral.
+     A navy pill with white text makes the selected state unmistakable; white
+     on pale blue was too close to read as "selected". */
+  --tabs-text-muted: #5b6474;
+  --tabs-text-active: #ffffff;
+  --tabs-bar-bg: #eaeef4;
+  --tabs-pill-bg: #04326d;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Header is sticky — offset in-page anchors so headings aren't hidden. */
+  scroll-padding-top: 6.5rem;
+  /* Stops iOS bumping type size when the device is rotated. */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  /* Avoids the grey flash on tap in mobile Safari and Chrome. */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Headings use the serif to echo the logo's letterforms. */
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* A visible, branded focus ring everywhere — never remove the outline. */
+:focus-visible {
+  outline: 2px solid var(--color-navy-600);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Buttons and links shouldn't be text-selectable on long-press. */
+button,
+[role="button"],
+a[data-pressable] {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   Utilities
+   ─────────────────────────────────────────────────────────────────────────── */
+
+@utility eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-family: var(--font-sans);
+}
+
+/* Press feedback, on the transitions.dev scale. --scale-medium (0.97) is the
+   same value the dropdown uses for its pre-open state. */
+@utility pressable {
+  transition:
+    transform var(--duration-quick) var(--ease-smooth-out),
+    box-shadow var(--duration-fast) var(--ease-smooth-out),
+    background-color var(--duration-fast) ease,
+    border-color var(--duration-fast) ease,
+    color var(--duration-fast) ease;
+
+  &:active {
+    transform: scale(var(--scale-medium));
+  }
+}
+
+/* The tabs snippet gives hover and selected the same colour. With a navy pill
+   that works for the selected tab but turns hovered unselected tabs white on
+   light grey, so hover gets its own colour here. */
+.t-tab:not([aria-selected="true"]):hover {
+  color: var(--color-navy-800);
+}
+
+/* The sliding pill is a separate absolutely-positioned element, so the selected
+   tab's own computed background stays transparent — meaning a contrast checker
+   (and forced-colors mode) sees a white label on the pale bar and calls it a
+   failure. Paint the same navy on the tab itself, delayed by exactly the slide
+   duration so it lands under the pill rather than appearing alongside it: the
+   animation is unchanged, the resting state is genuinely white-on-navy. */
+.t-tab[aria-selected="true"] {
+  background-color: var(--tabs-pill-bg);
+  transition:
+    color var(--tabs-dur) var(--tabs-ease),
+    background-color 0s linear var(--tabs-dur);
+}
+
+.t-tab:not([aria-selected="true"]) {
+  background-color: transparent;
+  transition:
+    color var(--tabs-dur) var(--tabs-ease),
+    background-color 0s linear 0s;
+}
+
+/* Faint ruled-paper texture for section backgrounds. */
+@utility ruled {
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-line) 0 1px,
+    transparent 1px 100%
+  );
+  background-size: 100% 2rem;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   Scroll reveal — see components/ui/reveal.tsx
+   Content is visible by default so it never depends on JS; the component adds
+   data-reveal only once it has mounted, then flips data-shown when in view.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(var(--distance-medium));
+  filter: blur(var(--blur-medium));
+  transition:
+    opacity var(--duration-very-slow) var(--ease-smooth-out),
+    transform var(--duration-very-slow) var(--ease-smooth-out),
+    filter var(--duration-very-slow) var(--ease-smooth-out);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: transform, opacity, filter;
+}
+
+[data-reveal][data-shown="true"] {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   Reduced motion — keep opacity, drop movement.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-reveal] {
+    transform: none;
+    filter: none;
+    transition-duration: 200ms;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
