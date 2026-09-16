@@ -80,7 +80,7 @@ export default function TermsPage() {
               <p>
                 Prices are quoted in ⟨currency⟩ and are exclusive of ⟨VAT / tax⟩
                 unless the quotation says otherwise. Payment terms are as stated
-                on the quotation or on your account — ⟨for example, 30 days from
+                on the quotation or on your account, ⟨for example, 30 days from
                 invoice date⟩.
               </p>
               <p>
@@ -120,7 +120,7 @@ export default function TermsPage() {
             <Block title="7. Our liability">
               <p>
                 Nothing in these terms excludes liability that cannot lawfully be
-                excluded — including for death or personal injury caused by our
+                excluded, including for death or personal injury caused by our
                 negligence, or for fraud.
               </p>
               <p>

@@ -11,7 +11,7 @@ import { ogImage, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: `${site.legalName} supplies businesses with the full range of office stationery — held in stock, delivered free, invoiced monthly.`,
+  description: `${site.legalName} supplies businesses with the full range of office stationery, held in stock, delivered free, invoiced monthly.`,
   alternates: { canonical: "/about" },
   openGraph: {
     title: `About · ${site.name}`,
@@ -50,7 +50,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About us"
         title="The office supplier that shows up"
-        lead="Stationery only matters when it runs out. Our whole business is built so it doesn't — the right stock on the shelf, a quote back the same day, and delivery that arrives when we said it would."
+        lead="Stationery only matters when it runs out. Our whole business is built so it doesn't. The right stock on the shelf, a quote back the same day, and delivery that arrives when we said it would."
       />
 
       {/* ── Story ── */}
@@ -72,9 +72,9 @@ export default function AboutPage() {
                 <p>
                   {site.legalName} exists to collapse that back into a single
                   account. We hold {categoryCount} categories across{" "}
-                  {catalog.length} groups — filing and binding, paper and print,
+                  {catalog.length} groups: filing and binding, paper and print,
                   writing, desk essentials, office machines, boards, packing and
-                  ID — so the routine reorder is one email, one delivery, one
+                  ID, so the routine reorder is one email, one delivery, one
                   invoice at the end of the month.
                 </p>
                 <p>

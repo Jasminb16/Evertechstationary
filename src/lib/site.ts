@@ -16,39 +16,35 @@ export const site = {
   tagline: "Office stationery, delivered right",
   /** Kept under 160 characters so search engines don't truncate it. */
   description:
-    "Office stationery, filing, printing and desk essentials for businesses — one supplier, one invoice, free delivery and same-day dispatch on stocked lines.",
+    "Office stationery, filing, printing and desk essentials for businesses: one supplier, one invoice, free delivery and same-day dispatch on stocked lines.",
 
   /** Canonical production URL. Domain is registered and currently parked. */
   url: "https://evertechstationery.com",
 
   contact: {
-    phone: "+971 50 000 0000", // TODO: real phone
-    phoneHref: "tel:+971500000000",
-    whatsapp: "+971 50 000 0000", // TODO: real WhatsApp
-    whatsappHref: "https://wa.me/971500000000",
-    email: "sales@evertechstationery.com", // TODO: real email
-    emailHref: "mailto:sales@evertechstationery.com",
+    // Supplied as 0569318022; the trunk 0 is dropped after +971 so the tel:
+    // and wa.me links dial correctly from outside the UAE.
+    phone: "+971 56 931 8022",
+    phoneHref: "tel:+971569318022",
+    whatsapp: "+971 56 931 8022", // TODO: confirm WhatsApp is on this same number
+    whatsappHref: "https://wa.me/971569318022",
+    email: "tek@evertechstationery.com",
+    emailHref: "mailto:tek@evertechstationery.com",
   },
 
   address: {
-    line1: "Office 000, Building Name", // TODO
-    line2: "Street / Area",
+    /** Street lines above the city. Add the building/office when known. */
+    lines: ["Port Saeed"],
     city: "Dubai",
     country: "United Arab Emirates",
     /** Google Maps embed query — swap for the real pin. */
-    mapQuery: "Dubai, United Arab Emirates",
+    mapQuery: "Port Saeed, Dubai, United Arab Emirates",
   },
 
   hours: [
     { days: "Monday – Friday", time: "8:30 am – 6:30 pm" },
     { days: "Saturday", time: "9:00 am – 2:00 pm" },
     { days: "Sunday", time: "Closed" },
-  ],
-
-  socials: [
-    { name: "Facebook", href: "https://facebook.com/" }, // TODO
-    { name: "Instagram", href: "https://instagram.com/" }, // TODO
-    { name: "LinkedIn", href: "https://linkedin.com/" }, // TODO
   ],
 
   /**
@@ -77,7 +73,7 @@ export const ogImage = {
   url: "/opengraph-image",
   width: 1200,
   height: 630,
-  alt: `${site.legalName} — ${site.tagline}`,
+  alt: `${site.legalName} | ${site.tagline}`,
 };
 
 export const nav = [

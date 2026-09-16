@@ -39,7 +39,7 @@ export const testimonials: Testimonial[] = [];
 export const sectors = [
   {
     name: "Professional services",
-    body: "Law firms, accountancy practices and consultancies — heavy on filing, binding and premium print.",
+    body: "Law firms, accountancy practices and consultancies: heavy on filing, binding and premium print.",
   },
   {
     name: "Education",

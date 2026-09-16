@@ -4,7 +4,7 @@ import { join } from "node:path";
 
 import { site } from "@/lib/site";
 
-export const alt = `${site.legalName} — ${site.tagline}`;
+export const alt = `${site.legalName} | ${site.tagline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

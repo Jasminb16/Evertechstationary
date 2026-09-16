@@ -62,8 +62,8 @@ export default function PrivacyPage() {
               </p>
               <p>
                 <strong>Information collected automatically.</strong> Our
-                hosting provider records standard server logs — IP address,
-                browser user-agent, requested URL and timestamp — which are used
+                hosting provider records standard server logs (IP address,
+                browser user-agent, requested URL and timestamp) which are used
                 to keep the site available and to rate-limit abuse of the
                 enquiry form.
               </p>
@@ -103,7 +103,7 @@ export default function PrivacyPage() {
                 This site sets no cookies of its own. The only cookies that can
                 be set are analytics cookies, and only after you press
                 &ldquo;Accept&rdquo; on the banner. Your choice is stored in
-                your browser&rsquo;s local storage — not in a cookie — so that
+                your browser&rsquo;s local storage, not in a cookie, so that
                 we do not ask again on every page.
               </p>
               <p>
@@ -126,7 +126,7 @@ export default function PrivacyPage() {
             <Block title="Who we share it with">
               <p>
                 Enquiry details are visible to our own staff and to the service
-                providers that operate this site on our behalf — our hosting
+                providers that operate this site on our behalf: our hosting
                 provider and our email provider. They act on our instructions
                 and may not use your information for their own purposes. We
                 disclose information to anyone else only where the law requires
@@ -182,7 +182,7 @@ export default function PrivacyPage() {
               <p>
                 Questions, requests or complaints:{" "}
                 <a href={site.contact.emailHref}>{site.contact.email}</a>, or
-                write to us at {site.address.line1}, {site.address.line2},{" "}
+                write to us at {site.address.lines.join(", ")},{" "}
                 {site.address.city}, {site.address.country}.
               </p>
               <p>

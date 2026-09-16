@@ -25,7 +25,7 @@ export default function NotFound() {
         </h1>
         <p className="mx-auto mt-5 max-w-md text-lg leading-relaxed text-ink-muted">
           Like the good scissors. The link may be out of date, or the page may
-          have moved — here&apos;s the way back.
+          have moved. Here&apos;s the way back.
         </p>
 
         <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">

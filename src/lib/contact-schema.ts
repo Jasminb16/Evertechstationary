@@ -70,7 +70,7 @@ export function validate(input: Partial<ContactPayload>): Errors {
 
   const message = (input.message ?? "").trim();
   if (message.length < 10) {
-    errors.message = "Please tell us a little more — at least 10 characters.";
+    errors.message = "Please tell us a little more, at least 10 characters.";
   } else if (message.length > LIMITS.message) {
     errors.message = `Please keep this under ${LIMITS.message} characters.`;
   }

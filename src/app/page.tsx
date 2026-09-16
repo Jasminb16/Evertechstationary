@@ -19,7 +19,7 @@ import { catalog, categoryCount, featuredGroupSlugs } from "@/lib/catalog";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: `${site.legalName} — ${site.tagline}`,
+  title: `${site.legalName} | ${site.tagline}`,
   description: site.description,
   alternates: { canonical: "/" },
 };
@@ -90,7 +90,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="What we supply"
             title="Everything the office gets through"
-            lead={`${categoryCount} categories across filing, print, writing, desk essentials, machines and packing — the full working inventory rather than a token selection.`}
+            lead={`${categoryCount} categories across filing, print, writing, desk essentials, machines and packing. The full working inventory rather than a token selection.`}
           />
           <Reveal>
             <ButtonLink href="/products" variant="secondary">

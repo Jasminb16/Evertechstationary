@@ -11,7 +11,7 @@ import { ogImage, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Products",
-  description: `Browse ${categoryCount} categories of office stationery from ${site.legalName} — filing, paper and print, writing, desk essentials, office machines, boards, packing and ID.`,
+  description: `Browse ${categoryCount} categories of office stationery from ${site.legalName}: filing, paper and print, writing, desk essentials, office machines, boards, packing and ID.`,
   alternates: { canonical: "/products" },
   openGraph: {
     title: `Products · ${site.name}`,
@@ -27,7 +27,7 @@ export default function ProductsPage() {
       <PageHeader
         eyebrow="Our range"
         title="Office stationery, A to Z"
-        lead={`${categoryCount} categories across ${catalog.length} groups. This is the working catalogue, not a highlights reel — and if something isn't listed, we'll source it.`}
+        lead={`${categoryCount} categories across ${catalog.length} groups. This is the working catalogue, not a highlights reel, and if something isn't listed, we'll source it.`}
       />
 
       {/* Less top padding than a standard Section: the filter bar is sticky and

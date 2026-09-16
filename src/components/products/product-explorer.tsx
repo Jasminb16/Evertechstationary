@@ -175,7 +175,7 @@ export function ProductExplorer() {
           </p>
           <p className="mx-auto mt-2 max-w-md text-[0.9375rem] text-ink-muted">
             We stock well beyond what&apos;s listed here and source specialist
-            lines on request — tell us what you need and we&apos;ll quote it.
+            lines on request. Tell us what you need and we&apos;ll quote it.
           </p>
         </div>
       ) : (

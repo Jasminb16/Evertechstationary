@@ -45,7 +45,7 @@ export const catalog: CategoryGroup[] = [
     slug: "filing-organisation",
     name: "Filing & Organisation",
     shortName: "Filing",
-    summary: "Keep every document findable — binders, files, trays and storage.",
+    summary: "Keep every document findable: binders, files, trays and storage.",
     icon: "filing",
     categories: [
       { slug: "lever-arch-files", name: "Lever arch files", blurb: "Board and PVC lever arch files in A4 and foolscap." },
@@ -82,7 +82,7 @@ export const catalog: CategoryGroup[] = [
     slug: "writing-correction",
     name: "Writing & Correction",
     shortName: "Writing",
-    summary: "Pens that get borrowed and never come back — so order plenty.",
+    summary: "Pens that get borrowed and never come back, so order plenty.",
     icon: "writing",
     categories: [
       { slug: "pens", name: "Pens", blurb: "Ballpoint, gel and rollerball in bulk packs and singles." },
@@ -120,7 +120,7 @@ export const catalog: CategoryGroup[] = [
     slug: "office-machines",
     name: "Office Machines",
     shortName: "Machines",
-    summary: "Bind it, laminate it, shred it — with the consumables to match.",
+    summary: "Bind it, laminate it, shred it, with the consumables to match.",
     icon: "machines",
     categories: [
       { slug: "binding-machines", name: "Binding machines", blurb: "Comb, wire and thermal binders plus spines and combs." },
@@ -149,7 +149,7 @@ export const catalog: CategoryGroup[] = [
     slug: "packing-shipping",
     name: "Packing & Shipping",
     shortName: "Packing",
-    summary: "Get it out the door intact — tape, wrap, cartons and labels.",
+    summary: "Get it out the door intact: tape, wrap, cartons and labels.",
     icon: "packing",
     categories: [
       { slug: "packing-tapes", name: "Packing tapes", blurb: "Clear, brown and printed tape with dispensers." },

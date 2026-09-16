@@ -27,7 +27,7 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Contact us"
         title="Tell us what you need"
-        lead="Send your list, ask for a quote, or open an account. Whichever it is, a person reads it — usually the same working day."
+        lead="Send your list, ask for a quote, or open an account. Whichever it is, a person reads it, usually the same working day."
       />
 
       <section className="bg-paper py-16 sm:py-20 lg:py-24">
@@ -104,10 +104,11 @@ export default function ContactPage() {
                     <span>
                       <span className="block text-sm text-ink-muted">Address</span>
                       <address className="mt-0.5 font-medium text-ink not-italic">
-                        {site.address.line1}
-                        <br />
-                        {site.address.line2}
-                        <br />
+                        {site.address.lines.map((line) => (
+                          <span key={line} className="block">
+                            {line}
+                          </span>
+                        ))}
                         {site.address.city}, {site.address.country}
                       </address>
                     </span>

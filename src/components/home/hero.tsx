@@ -74,10 +74,12 @@ export function Hero() {
               </h1>
               <p className="t-stagger-line t-stagger-line--3 mt-6 max-w-lg text-lg leading-relaxed text-ink-muted">
                 From photocopy paper and lever arch files to binding machines
-                and packing tape — {categoryCount} categories, held in stock and
+                and packing tape. {categoryCount} categories, held in stock and
                 on your desk the next working day.
               </p>
-              <div className="t-stagger-line t-stagger-line--4 mt-8 flex flex-col gap-3 sm:flex-row">
+              {/* flex! because .t-stagger-line sets display:block and transitions.css
+                  loads after Tailwind — same specificity, so it would win the tie. */}
+              <div className="t-stagger-line t-stagger-line--4 mt-8 flex! flex-col gap-3 sm:flex-row">
                 <ButtonLink href="/products" size="lg">
                   Browse the range
                 </ButtonLink>

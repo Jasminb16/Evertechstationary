@@ -12,7 +12,7 @@ import { ogImage, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Clients",
-  description: `The sectors ${site.legalName} supplies — professional services, education, healthcare, logistics, hospitality and the public sector.`,
+  description: `The sectors ${site.legalName} supplies: professional services, education, healthcare, logistics, hospitality and the public sector.`,
   alternates: { canonical: "/clients" },
   openGraph: {
     title: `Clients · ${site.name}`,
@@ -36,7 +36,7 @@ export default function ClientsPage() {
         <SectionHeading
           eyebrow="Sectors"
           title="Different offices, different reorder rhythms"
-          lead="We set the account up around how you actually buy — termly, monthly, or whenever the cupboard looks empty."
+          lead="We set the account up around how you actually buy: termly, monthly, or whenever the cupboard looks empty."
         />
 
         <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

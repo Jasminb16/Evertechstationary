@@ -60,7 +60,7 @@ export function Logo({
   return (
     <Link
       href={href}
-      aria-label={`${site.legalName} — home`}
+      aria-label={`${site.legalName}, home`}
       className="pressable rounded-lg"
       data-pressable
     >

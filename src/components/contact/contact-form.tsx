@@ -199,7 +199,7 @@ export function ContactForm() {
           </svg>
         </span>
         <h2 className="mt-6 font-serif text-2xl font-semibold text-ink">
-          Thanks — we&apos;ve got it
+          Thanks, we&apos;ve got it
         </h2>
         <p className="mx-auto mt-3 max-w-sm text-[0.9375rem] leading-relaxed text-ink-muted">
           We&apos;ll come back to you with a quote, usually within one working
